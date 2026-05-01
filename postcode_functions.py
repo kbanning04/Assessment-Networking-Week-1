@@ -47,7 +47,9 @@ def get_postcode_for_location(lat: float, long: float) -> str:
     response = req.get(f"{POSTCODE_URL}?lon={long}&lat={lat}")
     if response.status_code == 200:
         json_response = response.json()
-        return json_response["result"][0]["admin_district"]
+        if json_response["result"] is None:
+            raise ValueError("No relevant postcode found.")
+        return json_response["result"][0]["postcode"]
     else:
         if response.status_code == 500:
             raise req.RequestException("Unable to access API.")
