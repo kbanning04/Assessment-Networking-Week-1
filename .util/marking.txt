@@ -2,37 +2,36 @@
 platform linux -- Python 3.12.13, pytest-9.0.3, pluggy-1.6.0
 rootdir: /home/runner/work/Assessment-Networking-Week-1/Assessment-Networking-Week-1
 plugins: requests-mock-1.12.1
-collected 91 items
+collected 90 items
 
-test_postcode_cache.py FFFFFFFFFFFFF                                     [ 14%]
-test_postcode_cli.py FFF.FFFFFFFFFFFFFFFFFFFFF.F.....                    [ 49%]
+test_postcode_cache.py FFFFFFFFF....                                     [ 14%]
+test_postcode_cli.py ...............................                     [ 48%]
 test_postcode_functions.py ............................................F [ 98%]
 F                                                                        [100%]
 
-======================== 40 failed, 51 passed in 0.82s =========================
+======================== 11 failed, 79 passed in 5.65s =========================
 ************* Module postcode_cli
-postcode_cli.py:7:0: C0304: Final newline missing (missing-final-newline)
-postcode_cli.py:3:0: W0611: Unused ArgumentParser imported from argparse (unused-import)
+postcode_cli.py:21:0: C0301: Line too long (108/100) (line-too-long)
+postcode_cli.py:28:4: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
+postcode_cli.py:30:11: C0121: Comparison 'valid == True' should be 'valid is True' if checking for the singleton value True, or 'valid' if testing for truthiness (singleton-comparison)
 ************* Module postcode_functions
-postcode_functions.py:15:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
-postcode_functions.py:21:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
-postcode_functions.py:18:15: W0613: Unused argument 'cache' (unused-argument)
-postcode_functions.py:30:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
-postcode_functions.py:32:4: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
-postcode_functions.py:47:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
-postcode_functions.py:48:4: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
-postcode_functions.py:41:0: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
-postcode_functions.py:64:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
-postcode_functions.py:65:4: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
-postcode_functions.py:58:0: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
-postcode_functions.py:73:0: C0116: Missing function or method docstring (missing-function-docstring)
-postcode_functions.py:79:15: W3101: Missing timeout argument for method 'req.post' can cause your program to hang indefinitely (missing-timeout)
-postcode_functions.py:73:0: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
+postcode_functions.py:14:8: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+postcode_functions.py:14:8: R1732: Consider using 'with' for resource-allocating operations (consider-using-with)
+postcode_functions.py:22:9: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+postcode_functions.py:32:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
+postcode_functions.py:33:4: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
+postcode_functions.py:48:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
+postcode_functions.py:49:4: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
+postcode_functions.py:42:0: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
+postcode_functions.py:65:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
+postcode_functions.py:66:4: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
+postcode_functions.py:59:0: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
+postcode_functions.py:74:0: C0116: Missing function or method docstring (missing-function-docstring)
+postcode_functions.py:87:15: W3101: Missing timeout argument for method 'req.post' can cause your program to hang indefinitely (missing-timeout)
 postcode_functions.py:4:0: C0411: standard import "os" should be placed before third party import "requests" (wrong-import-order)
 postcode_functions.py:5:0: C0411: standard import "json" should be placed before third party import "requests" (wrong-import-order)
 postcode_functions.py:4:0: W0611: Unused import os (unused-import)
-postcode_functions.py:5:0: W0611: Unused import json (unused-import)
 
 ------------------------------------------------------------------
-Your code has been rated at 6.30/10 (previous run: 6.30/10, +0.00)
+Your code has been rated at 7.91/10 (previous run: 7.91/10, +0.00)
 
