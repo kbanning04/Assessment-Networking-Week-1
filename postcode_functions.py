@@ -56,6 +56,9 @@ def get_postcode_for_location(lat: float, long: float) -> str:
 
 
 def get_postcode_completions(postcode_start: str) -> list[str]:
+    """
+    Returns a list of postcodes that start with the input.
+    """
     if not isinstance(postcode_start, str):
         raise TypeError("Function expects a string.")
     response = req.get(f"{POSTCODE_URL}/{postcode_start}/autocomplete")
@@ -68,4 +71,14 @@ def get_postcode_completions(postcode_start: str) -> list[str]:
 
 
 def get_postcodes_details(postcodes: list[str]) -> dict:
-    pass
+    if not isinstance(postcodes, list):
+        raise TypeError("Function expects a list of strings.")
+    for code in postcodes:
+        if not isinstance(code, str):
+            raise TypeError("Function expects a list of strings.")
+    response = req.post(f"{POSTCODE_URL}", json=postcodes)
+    if response.status_code == 200:
+        json_response = response.json()
+        return json_response
+    if response.status_code == 500:
+        raise req.RequestException("Unable to access API.")
