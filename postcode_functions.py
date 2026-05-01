@@ -29,20 +29,14 @@ def validate_postcode(postcode: str) -> bool:
     """
     if not isinstance(postcode, str):
         raise TypeError("Function expects a string.")
-    cache = load_cache()
-    x = cache.get(postcode)
-    if x is None:
-        response = req.get(
-            f"{POSTCODE_URL}/{postcode}/validate")
-        if response.status_code == 200:
-            json_response = response.json()
-            save_cache(json_response)
-            return json_response["result"]
-        else:
-            if response.status_code == 500:
-                raise req.RequestException("Unable to access API.")
-            return False
-    return cache["postcode"]
+    response = req.get(f"{POSTCODE_URL}/{postcode}/validate")
+    if response.status_code == 200:
+        json_response = response.json()
+        return json_response["result"]
+    else:
+        if response.status_code == 500:
+            raise req.RequestException("Unable to access API.")
+    return False
 
 
 def get_postcode_for_location(lat: float, long: float) -> str:
@@ -78,17 +72,25 @@ def get_postcode_completions(postcode_start: str) -> list[str]:
 
 
 def get_postcodes_details(postcodes: list[str]) -> list[dict]:
+    response = []
     if not isinstance(postcodes, list):
         raise TypeError("Function expects a list of strings.")
     for code in postcodes:
         if not isinstance(code, str):
             raise TypeError("Function expects a list of strings.")
-    response = req.post(f"{POSTCODE_URL}", json=postcodes)
+    payload = {
+        "postcodes": postcodes
+    }
+    headers = {
+        'Accept': 'application/json'
+    }
+    response = req.post(f"{POSTCODE_URL}", headers=headers, data=payload)
     if response.status_code == 200:
         json_response = response.json()
         return json_response
     if response.status_code == 500:
         raise req.RequestException("Unable to access API.")
+    return response
 
 
 if __name__ == "__main__":
