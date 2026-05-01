@@ -11,14 +11,16 @@ POSTCODE_URL = "https://api.postcodes.io/postcodes"
 
 def load_cache() -> dict:
     """Loads the cache from a file and converts it from JSON to a dictionary."""
-    # This function is used in Task 3, you can ignore it for now.
-    ...
+    f = open(f"{CACHE_FILE}")
+    cache_data = json.load(f)
+    f.close()
+    return cache_data
 
 
 def save_cache(cache: dict):
     """Saves the cache to a file as JSON"""
-    # This function is used in Task 3, you can ignore it for now.
-    ...
+    with open(f"{CACHE_FILE}", "w") as f:
+        json.dump(cache, f, indent=2)
 
 
 def validate_postcode(postcode: str) -> bool:
@@ -27,15 +29,20 @@ def validate_postcode(postcode: str) -> bool:
     """
     if not isinstance(postcode, str):
         raise TypeError("Function expects a string.")
-    response = req.get(
-        f"{POSTCODE_URL}/{postcode}/validate")
-    if response.status_code == 200:
-        json_response = response.json()
-        return json_response["result"]
-    else:
-        if response.status_code == 500:
-            raise req.RequestException("Unable to access API.")
-        return False
+    cache = load_cache()
+    x = cache.get(postcode)
+    if x is None:
+        response = req.get(
+            f"{POSTCODE_URL}/{postcode}/validate")
+        if response.status_code == 200:
+            json_response = response.json()
+            save_cache(json_response)
+            return json_response["result"]
+        else:
+            if response.status_code == 500:
+                raise req.RequestException("Unable to access API.")
+            return False
+    return cache["postcode"]
 
 
 def get_postcode_for_location(lat: float, long: float) -> str:
@@ -70,7 +77,7 @@ def get_postcode_completions(postcode_start: str) -> list[str]:
             raise req.RequestException("Unable to access API.")
 
 
-def get_postcodes_details(postcodes: list[str]) -> dict:
+def get_postcodes_details(postcodes: list[str]) -> list[dict]:
     if not isinstance(postcodes, list):
         raise TypeError("Function expects a list of strings.")
     for code in postcodes:
@@ -85,4 +92,4 @@ def get_postcodes_details(postcodes: list[str]) -> dict:
 
 
 if __name__ == "__main__":
-    print(get_postcode_completions("SSSS"))
+    print(get_postcode_completions("SO53"))
