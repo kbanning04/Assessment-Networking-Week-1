@@ -27,19 +27,18 @@ def main():
     postcode = postcode.strip()
     if mode == "validate":
         valid = validate_postcode(postcode)
-        if valid == True:
+        if valid is True:
             return f"{postcode} is a valid postcode."
         return f"{postcode} is not a valid postcode."
-    else:
-        possible_postcodes = get_postcode_completions(postcode)
-        if possible_postcodes is None:
-            return f"No matches for {postcode}."
-        i = 1
-        list_of_possibles = possible_postcodes[0]
-        while i < 5:
-            list_of_possibles += "\n" + possible_postcodes[i]
-            i += 1
-        return list_of_possibles
+    possible_postcodes = get_postcode_completions(postcode)
+    if possible_postcodes is None:
+        return f"No matches for {postcode}."
+    i = 1
+    list_of_possibles = possible_postcodes[0]
+    while i < 5:
+        list_of_possibles += "\n" + possible_postcodes[i]
+        i += 1
+    return list_of_possibles
 
 
 if __name__ == "__main__":
