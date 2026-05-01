@@ -6,32 +6,33 @@ collected 91 items
 
 test_postcode_cache.py FFFFFFFFFFFFF                                     [ 14%]
 test_postcode_cli.py FFF.FFFFFFFFFFFFFFFFFFFFF.F.....                    [ 49%]
-test_postcode_functions.py FFFFFFFFFF...FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF [ 98%]
+test_postcode_functions.py ............................................F [ 98%]
 F                                                                        [100%]
 
-======================== 81 failed, 10 passed in 0.84s =========================
+======================== 40 failed, 51 passed in 0.82s =========================
 ************* Module postcode_cli
 postcode_cli.py:7:0: C0304: Final newline missing (missing-final-newline)
 postcode_cli.py:3:0: W0611: Unused ArgumentParser imported from argparse (unused-import)
 ************* Module postcode_functions
-postcode_functions.py:12:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
-postcode_functions.py:18:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
-postcode_functions.py:15:15: W0613: Unused argument 'cache' (unused-argument)
-postcode_functions.py:22:0: C0116: Missing function or method docstring (missing-function-docstring)
-postcode_functions.py:22:22: W0613: Unused argument 'postcode' (unused-argument)
-postcode_functions.py:26:0: C0116: Missing function or method docstring (missing-function-docstring)
-postcode_functions.py:26:30: W0613: Unused argument 'lat' (unused-argument)
-postcode_functions.py:26:42: W0613: Unused argument 'long' (unused-argument)
-postcode_functions.py:30:0: C0116: Missing function or method docstring (missing-function-docstring)
-postcode_functions.py:30:29: W0613: Unused argument 'postcode_start' (unused-argument)
-postcode_functions.py:34:0: C0116: Missing function or method docstring (missing-function-docstring)
-postcode_functions.py:34:26: W0613: Unused argument 'postcodes' (unused-argument)
+postcode_functions.py:15:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
+postcode_functions.py:21:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
+postcode_functions.py:18:15: W0613: Unused argument 'cache' (unused-argument)
+postcode_functions.py:30:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
+postcode_functions.py:32:4: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
+postcode_functions.py:47:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
+postcode_functions.py:48:4: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
+postcode_functions.py:41:0: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
+postcode_functions.py:64:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
+postcode_functions.py:65:4: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
+postcode_functions.py:58:0: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
+postcode_functions.py:73:0: C0116: Missing function or method docstring (missing-function-docstring)
+postcode_functions.py:79:15: W3101: Missing timeout argument for method 'req.post' can cause your program to hang indefinitely (missing-timeout)
+postcode_functions.py:73:0: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
 postcode_functions.py:4:0: C0411: standard import "os" should be placed before third party import "requests" (wrong-import-order)
 postcode_functions.py:5:0: C0411: standard import "json" should be placed before third party import "requests" (wrong-import-order)
-postcode_functions.py:3:0: W0611: Unused requests imported as req (unused-import)
 postcode_functions.py:4:0: W0611: Unused import os (unused-import)
 postcode_functions.py:5:0: W0611: Unused import json (unused-import)
 
 ------------------------------------------------------------------
-Your code has been rated at 0.00/10 (previous run: 0.00/10, +0.00)
+Your code has been rated at 6.30/10 (previous run: 6.30/10, +0.00)
 
