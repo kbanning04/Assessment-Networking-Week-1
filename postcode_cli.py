@@ -24,6 +24,7 @@ def main():
     mode = args.mode
     postcode = args.postcode
     postcode = postcode.upper()
+    postcode = postcode.strip()
     if mode == "validate":
         valid = validate_postcode(postcode)
         if valid == True:
