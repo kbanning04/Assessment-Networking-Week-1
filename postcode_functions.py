@@ -82,3 +82,7 @@ def get_postcodes_details(postcodes: list[str]) -> dict:
         return json_response
     if response.status_code == 500:
         raise req.RequestException("Unable to access API.")
+
+
+if __name__ == "__main__":
+    print(get_postcode_completions("SSSS"))
