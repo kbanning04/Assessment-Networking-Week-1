@@ -9,29 +9,15 @@ test_postcode_cli.py ...............................                     [ 48%]
 test_postcode_functions.py ............................................F [ 98%]
 F                                                                        [100%]
 
-======================== 11 failed, 79 passed in 5.65s =========================
+======================== 11 failed, 79 passed in 5.82s =========================
 ************* Module postcode_cli
 postcode_cli.py:21:0: C0301: Line too long (108/100) (line-too-long)
-postcode_cli.py:28:4: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
-postcode_cli.py:30:11: C0121: Comparison 'valid == True' should be 'valid is True' if checking for the singleton value True, or 'valid' if testing for truthiness (singleton-comparison)
 ************* Module postcode_functions
 postcode_functions.py:14:8: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
 postcode_functions.py:14:8: R1732: Consider using 'with' for resource-allocating operations (consider-using-with)
 postcode_functions.py:22:9: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
-postcode_functions.py:32:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
-postcode_functions.py:33:4: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
-postcode_functions.py:48:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
-postcode_functions.py:49:4: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
-postcode_functions.py:42:0: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
-postcode_functions.py:65:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
-postcode_functions.py:66:4: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
-postcode_functions.py:59:0: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
-postcode_functions.py:74:0: C0116: Missing function or method docstring (missing-function-docstring)
-postcode_functions.py:87:15: W3101: Missing timeout argument for method 'req.post' can cause your program to hang indefinitely (missing-timeout)
-postcode_functions.py:4:0: C0411: standard import "os" should be placed before third party import "requests" (wrong-import-order)
-postcode_functions.py:5:0: C0411: standard import "json" should be placed before third party import "requests" (wrong-import-order)
-postcode_functions.py:4:0: W0611: Unused import os (unused-import)
+postcode_functions.py:3:0: W0611: Unused import os (unused-import)
 
 ------------------------------------------------------------------
-Your code has been rated at 7.91/10 (previous run: 7.91/10, +0.00)
+Your code has been rated at 9.45/10 (previous run: 9.45/10, +0.00)
 
